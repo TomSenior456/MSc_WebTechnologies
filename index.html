@@ -1,22 +1,64 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        text-align: center;
-        font-family: Verdana, sans-serif;
-      }
-      h1 {
-        background-color: lightskyblue;
-        padding: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>MSc Web Technologies TS</h1>
-    <p>This is my second year of the course! I've learnt alot from the following page:</p>
-    <a href="https://www.w3schools.com">Visit W3Schools</a>
-    <h3>HTML is a new language for me</h3>
-    <p>I'm looking forward to learning more as the weeks progress!</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSc Web Technologies TS</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Verdana, sans-serif;
+    }
+    h1 {
+      background-color: lightskyblue;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>MSc Web Technologies TS</h1>
+  <p>This is my second year of the course! I've learnt alot from the following page:</p>
+  <a href="https://www.w3schools.com">Visit W3Schools</a>
+  <h3>HTML is a new language for me</h3>
+  <p>I'm looking forward to learning more as the weeks progress!</p>
+
+  <!-- Slider question -->
+  <h3>How many modules have you completed?</h3>
+  <input type="range" id="moduleRange" min="0" max="10" step="1" value="0">
+  <p>Modules completed: <span id="rangeValue">0</span></p>
+
+  <!-- Radio button question -->
+  <h3>How challenging have you found those modules so far?</h3>
+  <label>
+    <input type="radio" name="difficulty" value="Walk in the park"> Walk in the park
+  </label>
+  <label>
+    <input type="radio" name="difficulty" value="Moderately challenging"> Moderately challenging
+  </label>
+  <label>
+    <input type="radio" name="difficulty" value="Difficult"> Difficult
+  </label>
+  <p>You selected: <span id="difficultyOutput">nothing yet</span></p>
+
+  <script>
+    // Slider logic: updates the number live as the user drags it
+    const slider = document.getElementById('moduleRange');
+    const valueDisplay = document.getElementById('rangeValue');
+
+    slider.addEventListener('input', function() {
+      valueDisplay.textContent = slider.value;
+    });
+
+    // Radio button logic: shows which option was selected
+    const difficultyRadios = document.querySelectorAll('input[name="difficulty"]');
+    const difficultyOutput = document.getElementById('difficultyOutput');
+
+    difficultyRadios.forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        difficultyOutput.textContent = radio.value;
+      });
+    });
+  </script>
+
+</body>
 </html>
